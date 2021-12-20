@@ -1,0 +1,48 @@
+﻿<Window x:Class="SfTreeViewDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SfTreeViewDemo"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="500"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:FileManagerViewModel/>
+    </Window.DataContext>
+
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--Filter applied to the SfTreeView based on the text typed in this TextBox.-->
+            <TextBox x:Name="TextBox" BorderThickness="0.5" Padding="2,0,2,0" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,3" />
+            <syncfusion:SfTreeView
+            Grid.Row="1"
+            x:Name="treeView"
+            BorderThickness="1"
+            AutoExpandMode="AllNodes"
+            FocusVisualStyle="{x:Null}"
+            IsAnimationEnabled="True"
+            ItemsSource="{Binding CollectionView}"
+            ChildPropertyName="SubFiles">
+                <syncfusion:SfTreeView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock VerticalAlignment="Center"
+                               Text="{Binding FileName}" />
+                        </Grid>
+                    </DataTemplate>
+                </syncfusion:SfTreeView.ItemTemplate>
+                <!--The TreeViewFilterTrigger hooks the filtering method when the SfTreeView loaded-->
+                <behavior:Interaction.Triggers>
+                    <behavior:EventTrigger EventName="Loaded">
+                        <local:TreeViewFilterTrigger/>
+                    </behavior:EventTrigger>
+                </behavior:Interaction.Triggers>
+            </syncfusion:SfTreeView>
+        </Grid>
+</Window>
