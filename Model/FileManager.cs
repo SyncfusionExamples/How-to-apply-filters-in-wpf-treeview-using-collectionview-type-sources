@@ -17,7 +17,6 @@ namespace SfTreeViewDemo
         private string fileName;
         private ObservableCollection<FileManager> subFiles;
         private string fileDescription;
-        //"Books for recording periodic entries by the user, such as daily information about a journey, are called logbooks or simply logs. A similar book for writing the owner's daily private personal events, information, and ideas is called a diary or personal journal.";
 
         #endregion
 
