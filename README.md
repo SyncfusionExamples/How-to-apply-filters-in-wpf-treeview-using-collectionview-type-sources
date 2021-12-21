@@ -18,11 +18,14 @@ This example describes how to apply filters in wpf treeview using collectionview
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <!--Filter applied to the SfTreeView based on the text typed in this TextBox.-->
-            <TextBox x:Name="TextBox" BorderThickness="0.5" Padding="2,0,2,0" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,3" />
+            <TextBox x:Name="TextBox" Width="475" BorderThickness="1" Padding="2,0,2,0" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Margin="0,3,0,3" />
             <syncfusion:SfTreeView
             Grid.Row="1"
+            Width="475"
+            Height="550"
             x:Name="treeView"
-            BorderThickness="1"
+            BorderThickness="2"
+            BorderBrush="LightGray"
             AutoExpandMode="AllNodes"
             FocusVisualStyle="{x:Null}"
             IsAnimationEnabled="True"
@@ -36,7 +39,7 @@ This example describes how to apply filters in wpf treeview using collectionview
                         </Grid>
                     </DataTemplate>
                 </syncfusion:SfTreeView.ItemTemplate>
-                <!--The TreeViewFilterTrigger hooks the filtering method when the SfTreeView loaded-->
+                <!--Using the SfTreeView loaded event hooks the OnFilterChanged method.-->
                 <behavior:Interaction.Triggers>
                     <behavior:EventTrigger EventName="Loaded">
                         <local:TreeViewFilterTrigger/>
@@ -132,8 +135,14 @@ This example describes how to apply filters in wpf treeview using collectionview
                 if (file.SubFiles != null)
                 {
                     foreach (var subFile in file.SubFiles)
+                    {
                         if (subFile.FileName.ToLower().Contains(viewModel.FilterText.ToLower()))
                             return true;
+                        if (subFile.SubFiles != null)
+                            foreach (var sub in subFile.SubFiles)
+                                if (sub.FileName.ToLower().Contains(viewModel.FilterText.ToLower()))
+                                    return true;
+                    }
                 }
                 return false;
             };
@@ -146,5 +155,4 @@ This example describes how to apply filters in wpf treeview using collectionview
 
 ![Filter in SfTreeView using ListCollectionView](FilterInTreeView.gif)
 
-The following screenshot shows the filtered data in [WPF TreeView](https://www.syncfusion.com/wpf-controls/treeview) (SfTreeView),
-![Shows Filtered Data](FilteredData.png)
+View sample in [github](https://github.com/SyncfusionExamples/How-to-apply-filters-in-wpf-treeview-using-collectionview-type-sources).

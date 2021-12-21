@@ -37,8 +37,14 @@ namespace SfTreeViewDemo
                 if (file.SubFiles != null)
                 {
                     foreach (var subFile in file.SubFiles)
+                    {
                         if (subFile.FileName.ToLower().Contains(viewModel.FilterText.ToLower()))
                             return true;
+                        if (subFile.SubFiles != null)
+                            foreach (var sub in subFile.SubFiles)
+                                if (sub.FileName.ToLower().Contains(viewModel.FilterText.ToLower()))
+                                    return true;
+                    }
                 }
                 return false;
             };
