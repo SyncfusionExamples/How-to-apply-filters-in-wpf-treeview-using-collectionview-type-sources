@@ -156,5 +156,3 @@ It can be achieved by using in [Filter](https://docs.microsoft.com/en-us/dotnet/
 ```
 
 ![Filter in SfTreeView using ListCollectionView](FilterInTreeView.gif)
-
-View sample in [github](https://github.com/SyncfusionExamples/How-to-apply-filters-in-wpf-treeview-using-collectionview-type-sources).
