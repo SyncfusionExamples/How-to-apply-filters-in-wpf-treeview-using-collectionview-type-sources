@@ -21,23 +21,22 @@ It can be achieved by using in [Filter](https://docs.microsoft.com/en-us/dotnet/
             </Grid.RowDefinitions>
             <!--Filter applied to the SfTreeView based on the text typed in this TextBox.-->
             <TextBox x:Name="TextBox" Width="475" BorderThickness="1" Padding="2,0,2,0" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Margin="0,3,0,3" />
-            <syncfusion:SfTreeView
-            Grid.Row="1"
-            Width="475"
-            Height="550"
-            x:Name="treeView"
-            BorderThickness="2"
-            BorderBrush="LightGray"
-            AutoExpandMode="AllNodes"
-            FocusVisualStyle="{x:Null}"
-            IsAnimationEnabled="True"
-            ItemsSource="{Binding CollectionView}"
-            ChildPropertyName="SubFiles">
+            <syncfusion:SfTreeView x:Name="treeView"
+                                   Grid.Row="1"
+                                   Width="475"
+                                   Height="550"
+                                   BorderThickness="2"
+                                   BorderBrush="LightGray"
+                                   AutoExpandMode="AllNodes"
+                                   FocusVisualStyle="{x:Null}"
+                                   IsAnimationEnabled="True"
+                                   ItemsSource="{Binding CollectionView}"
+                                   ChildPropertyName="SubFiles">
                 <syncfusion:SfTreeView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <TextBlock VerticalAlignment="Center"
-                               Text="{Binding FileName}" />
+                                       Text="{Binding FileName}" />
                         </Grid>
                     </DataTemplate>
                 </syncfusion:SfTreeView.ItemTemplate>
@@ -104,7 +103,6 @@ It can be achieved by using in [Filter](https://docs.microsoft.com/en-us/dotnet/
             set { this.imageNodeInfo = value; }
         }
 
-
         #endregion
     }
 
@@ -149,7 +147,6 @@ It can be achieved by using in [Filter](https://docs.microsoft.com/en-us/dotnet/
                 return false;
             };
             this.Target.ExpandAll();
-
         }
     }
 
