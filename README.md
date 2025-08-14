@@ -1,13 +1,10 @@
-# How to apply filters in wpf treeview using collectionview type sources?
+# How to apply filters in WPF TreeView using collectionview type sources?
 
 ## About the sample
 
-This example describes how to apply filters in wpf treeview using collectionview type sources.
+This example describes how to apply filters in WPF TreeView using collectionview type sources.
 
-[WPF TreeView](https://www.syncfusion.com/wpf-controls/treeview) (SfTreeView) allows to apply filters using [ListCollectionView](https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.listcollectionview?view=windowsdesktop-6.0) and [CollectionView](https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.collectionview?view=windowsdesktop-6.0).
-
-It can be achieved by using in [Filter](https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.collectionview.filter?view=windowsdesktop-6.0#System_Windows_Data_CollectionView_Filter) property of [CollectionView](https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.collectionview?view=windowsdesktop-6.0).
-
+[WPF TreeView](https://www.syncfusion.com/wpf-controls/treeview) (SfTreeView) allows to apply filters using [ListCollectionView](https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.listcollectionview?view=windowsdesktop-6.0) and [CollectionView](https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.collectionview?view=windowsdesktop-6.0). It can be achieved by using in [Filter](https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.collectionview.filter?view=windowsdesktop-6.0#System_Windows_Data_CollectionView_Filter) property of CollectionView.
 ``` XML
 
  <Window.DataContext>
